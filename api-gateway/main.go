@@ -108,17 +108,17 @@ func main() {
 
 	router := gin.Default()
 	//router.Use(cors.Default())
-	router.POST("/internal/users", createUser)
-	router.POST("/internal/queues", createQueue)
-	router.GET("/recipes", getRecipes)                                         //get all recipes for a specific user
-	router.POST("/recipes", addRecipe)                                         //add new recipe to system
-	router.GET("/recipes/:recipeid", getRecipe)                                //get specific recipe
-	router.PUT("/recipes/:recipeid", updateRecipe)                             //update a specific recipe
-	router.GET("/queues/:queueid/recipes", getRecipesInQueue)                  //fetch the recipes in the user's queue
-	router.GET("/queues/:queueid/next", getNextRecipeInQueue)                  //fetch the next recipe in the queue based on json data
-	router.POST("/queues/:queueid/recipes", addRecipetoQueue)                  //add recipe to users queue
-	router.DELETE("/queues/:queueid/recipes/:recipeid", deleteRecipeFromQueue) //remove recipe from users queue
-	router.POST("/queues/:queueid/order", updateQueueOrder)                    //update the order of recipes in the queue
+	router.POST("/v1/internal/users", createUser)
+	router.POST("/v1/internal/queues", createQueue)
+	router.GET("/v1/recipes", getRecipes)                                         //get all recipes for a specific user
+	router.POST("/v1/recipes", addRecipe)                                         //add new recipe to system
+	router.GET("/v1/recipes/:recipeid", getRecipe)                                //get specific recipe
+	router.PUT("/v1/recipes/:recipeid", updateRecipe)                             //update a specific recipe
+	router.GET("/v1/queues/:queueid/recipes", getRecipesInQueue)                  //fetch the recipes in the user's queue
+	router.GET("/v1/queues/:queueid/next", getNextRecipeInQueue)                  //fetch the next recipe in the queue based on json data
+	router.POST("/v1/queues/:queueid/recipes", addRecipetoQueue)                  //add recipe to users queue
+	router.DELETE("/v1/queues/:queueid/recipes/:recipeid", deleteRecipeFromQueue) //remove recipe from users queue
+	router.POST("/v1/queues/:queueid/order", updateQueueOrder)                    //update the order of recipes in the queue
 
 	router.Run("localhost:8080")
 }
